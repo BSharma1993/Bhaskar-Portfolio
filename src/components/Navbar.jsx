@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logoPic from "../../public/photo.avif";
 import { IoMenuSharp } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
+import { Link } from "react-scroll";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
@@ -47,7 +48,15 @@ const Navbar = () => {
                   className="hover:scale-105 duration-200 hover:underline ease-out cursor-pointer "
                   key={id}
                 >
-                  {text}
+                  <Link
+                    to={text}
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    activeClass="active"
+                  >
+                    {text}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -65,7 +74,16 @@ const Navbar = () => {
                   className="hover:scale-105 duration-200 hover:underline ease-out cursor-pointer"
                   key={id}
                 >
-                  {text}
+                  <Link
+                    onClick={() => setMenu(!menu)}
+                    to={text}
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    activeClass="active"
+                  >
+                    {text}
+                  </Link>
                 </li>
               ))}
             </ul>
